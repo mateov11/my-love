@@ -8,9 +8,10 @@
 </head>
 <body>
 
-  <!-- Imagen inicial (reemplaza src por tu foto) -->
+  <!-- Sección imagen inicial (empieza negro, aparece con scroll) -->
   <section class="image-section">
     <img id="revealImage" src="fotos/foto1.jpg" alt="Imagen vertical">
+    <div class="reveal-overlay" id="revealOverlay"></div>
   </section>
 
   <main class="content">
@@ -35,7 +36,7 @@
     <p class="custom-text">Aquí puedes poner un mensaje personalizado</p>
   </main>
 
-  <!-- Galería centrada -->
+  <!-- Galería (secundarias detrás de la principal) -->
   <section class="gallery" aria-label="galería">
     <div class="gallery-track">
       <figure class="gallery-item"><img src="fotos/foto1.jpg" alt="Foto 1"></figure>
@@ -44,7 +45,6 @@
       <figure class="gallery-item"><img src="fotos/foto4.jpg" alt="Foto 4"></figure>
       <figure class="gallery-item"><img src="fotos/foto5.jpg" alt="Foto 5"></figure>
     </div>
-
     <button class="nav prev" aria-label="Anterior">‹</button>
     <button class="nav next" aria-label="Siguiente">›</button>
   </section>

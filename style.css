@@ -1,143 +1,135 @@
 :root{
-  --bg: #111;         /* fondo general */
-  --card: #2b2b2b;    /* tarjetas timer */
-  --accent: #e53935;  /* rojo título/corazones */
-  --shadow: 0 14px 40px rgba(0,0,0,.45);
+  --bg:#000;
+  --card:#2b2b2b;
+  --accent:#e53935;
+  --shadow:0 14px 40px rgba(0,0,0,.45);
 }
 
-*{ box-sizing: border-box; }
-
+*{ box-sizing:border-box; }
 body{
-  margin: 0;
+  margin:0;
   font-family: "Georgia", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);
-  color: #fff;
-  overflow-x: hidden;
-  text-align: center;
+  background:var(--bg);
+  color:#fff;
+  text-align:center;
+  overflow-x:hidden;
 }
 
 /* ---------- Imagen inicial ---------- */
 .image-section{
-  height: 72vh;                 /* menos alto para acercar el contenido */
+  height: 80vh;                 /* un poco más corto para acercar el contenido */
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
-  padding-block: 12px;
 }
 .image-section img{
-  width: min(320px, 70vw);
-  max-height: 70vh;
+  width: min(320px, 72vw);
+  max-height: 76vh;
   object-fit: cover;
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .25s ease, transform .25s ease;
+  opacity: 0;                   /* inicia invisible */
+  transform: translateY(26px) scale(0.98);
+  transition: opacity .3s ease, transform .3s ease;
+}
+/* Overlay negro que garantiza que arranque “todo negro” */
+.reveal-overlay{
+  position:absolute;
+  inset:0;
+  background:#000;
+  opacity:1;                    /* arranca totalmente negro */
+  pointer-events:none;
+  transition: opacity .3s ease;
 }
 
 /* ---------- Contenido ---------- */
 .content{
-  width: min(980px, 92vw);
-  margin: 4px auto 18px;        /* reduce el gap con la imagen */
+  width:min(980px,92vw);
+  margin: 6px auto 18px;        /* reduce el gap con la imagen */
 }
-
 .title{
   margin: 6px 0 14px;
   font: 700 42px/1.15 "Cursive", serif;
   color: var(--accent);
 }
 
-/* ---------- Timer 3 x 2 fijo y centrado ---------- */
+/* ---------- Timer 3x2 ---------- */
 .timer{
-  width: min(560px, 92vw);
-  margin: 0 auto 18px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 arriba + 3 abajo */
-  grid-auto-rows: 1fr;
-  gap: 14px;
+  width:min(560px, 92vw);
+  margin:0 auto 16px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
 }
 .time-unit{
-  display: grid;
-  place-items: center;
-  gap: 6px;
-  background: var(--card);
-  border-radius: 14px;
-  padding: 14px 10px;
-  box-shadow: var(--shadow);
+  background:var(--card);
+  border-radius:14px;
+  padding:14px 10px;
+  display:grid;
+  place-items:center;
+  gap:6px;
+  box-shadow:var(--shadow);
 }
-.time-number{ font: 800 32px/1 "Arial", sans-serif; letter-spacing: .5px; }
-.time-label{  font: 600 13px/1 "Arial", sans-serif; opacity: .95; }
+.time-number{ font:800 32px/1 "Arial", sans-serif; letter-spacing:.5px; }
+.time-label{  font:600 13px/1 "Arial", sans-serif; opacity:.95; }
 
-.together{
-  margin: 12px 0 10px;
-  font: 400 20px/1.35 "Cursive", serif;
-}
-.heart{ color: var(--accent); font-size: 22px; }
-
-/* ---------- Mensaje ---------- */
-.custom-text{
-  margin: 4px 0 10px;
-  font-size: 20px;
-}
+.together{ margin:10px 0 8px; font:400 20px/1.35 "Cursive", serif; }
+.heart{ color:var(--accent); font-size:22px; }
+.custom-text{ margin:4px 0 10px; font-size:20px; }
 
 /* ---------- Galería ---------- */
 .gallery{
-  width: min(1000px, 96vw);
+  width:min(1000px,96vw);
   height: clamp(320px, 44vh, 520px);
-  margin: 18px auto 42px;
-  position: relative;
+  margin:18px auto 42px;
+  position:relative;
   perspective: 1200px;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
 }
-
 .gallery-track{
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position:relative;
+  width:100%; height:100%;
   transform-style: preserve-3d;
 }
-
 .gallery-item{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%); /* base centrada */
-  transition: transform .5s ease, opacity .5s ease;
+  position:absolute;
+  top:50%; left:50%;
+  transform: translate(-50%,-50%);
+  transition: transform .5s ease, opacity .5s ease, filter .5s ease;
 }
 .gallery-item img{
-  width: auto;
-  height: 80%;
-  max-height: 420px;
-  max-width: 70vw;
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  object-fit: cover;
+  height:80%;
+  max-height:420px;
+  max-width:70vw;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  object-fit:cover;
 }
-
+/* centrada y con flechas */
 .nav{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,.18);
-  color: #fff;
-  border: 0;
-  border-radius: 10px;
-  padding: 8px 14px;
-  font-size: 28px;
-  cursor: pointer;
-  transition: background .2s ease;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,.18);
+  color:#fff;
+  border:0;
+  border-radius:10px;
+  padding:8px 14px;
+  font-size:28px;
+  cursor:pointer;
+  transition:background .2s;
+  z-index:50;
 }
-.nav:hover{ background: rgba(255,255,255,.35); }
-.prev{ left: 10px; }
-.next{ right: 10px; }
+.nav:hover{ background:rgba(255,255,255,.35); }
+.prev{ left:10px; }
+.next{ right:10px; }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 600px){
-  .title{ font-size: 34px; }
-  .time-number{ font-size: 28px; }
-  .time-label{ font-size: 12px; }
-  .time-unit{ padding: 12px 10px; }
+@media (max-width:600px){
+  .title{ font-size:34px; }
+  .time-number{ font-size:28px; }
+  .time-label{ font-size:12px; }
+  .time-unit{ padding:12px 10px; }
   .gallery{ height: clamp(300px, 48vh, 420px); }
-  .nav{ display: none; } /* flechas ocultas en móvil */
+  .nav{ display:none; } /* ocultar flechas en móvil */
 }
