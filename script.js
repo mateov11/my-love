@@ -1,29 +1,36 @@
-/* =========================
-   Imagen inicial (scroll reveal “todo negro” → foto)
-   - Empieza negro con overlay
-   - La foto y el overlay cambian entre 0% y 35% del alto de la ventana
-========================= */
-const revealImg = document.getElementById('revealImage');
+/* ========= 1) REVELADO INICIAL (todo negro → foto) ========= */
+const revealImg     = document.getElementById('revealImage');
 const revealOverlay = document.getElementById('revealOverlay');
+const imageSection  = document.querySelector('.image-section');
+
+/* progreso según la posición real de la sección en el viewport */
+function revealProgress(){
+  const rect = imageSection.getBoundingClientRect();
+  const vh   = window.innerHeight || document.documentElement.clientHeight;
+
+  // Empieza a revelar cuando la parte superior entra al viewport
+  const start = 0;            // px dentro del viewport
+  const end   = vh * 0.7;     // cuánto “camino” dura el revelado (ajustable)
+
+  const y = Math.min(Math.max((start - rect.top), 0), end);
+  return y / end; // 0 → 1
+}
 
 function handleReveal(){
-  const sc = window.scrollY;
-  const threshold = window.innerHeight * 0.35;   // rango de revelado (rápido pero no cortado)
-  const t = Math.min(Math.max(sc / Math.max(threshold,1), 0), 1);
-
-  // La foto aparece y sube levemente
+  const t = Math.min(Math.max(revealProgress(), 0), 1);
+  // Imagen aparece y sube
   revealImg.style.opacity   = t;
-  revealImg.style.transform = `translateY(${26 - 26*t}px) scale(${0.98 + 0.02*t})`;
-
-  // El overlay negro se desvanece (de 1 a 0)
+  revealImg.style.transform = `translateY(${28 - 28*t}px) scale(${0.98 + 0.02*t})`;
+  // Overlay negro se va
   revealOverlay.style.opacity = 1 - t;
 }
-window.addEventListener('scroll', handleReveal, {passive:true});
+
+window.addEventListener('scroll', handleReveal, { passive: true });
+window.addEventListener('resize', handleReveal);
+document.addEventListener('DOMContentLoaded', handleReveal);
 handleReveal();
 
-/* =========================
-   Contador (3 arriba / 3 abajo)
-========================= */
+/* ========= 2) CONTADOR (3 arriba / 3 abajo) ========= */
 const startDate = new Date('2025-09-20T00:00:00');
 function updateClock(){
   const now = new Date();
@@ -50,53 +57,50 @@ function updateClock(){
 setInterval(updateClock, 1000);
 updateClock();
 
-/* =========================
-   Galería 3D
-   - Secundarias por detrás (translateZ negativo + z-index menor)
-   - No “tapan” la principal (opacidad y zIndex)
-========================= */
+/* ========= 3) GALERÍA 3D (secundarias detrás) ========= */
 const track   = document.querySelector('.gallery-track');
 const items   = Array.from(document.querySelectorAll('.gallery-item'));
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 
 let currentIndex = 0;
-let baseX = 200;
-let depthZ = 160; // profundidad hacia atrás
+let baseX  = 220;   // desplazamiento lateral (se recalcula)
+let depthZ = 200;   // empuje hacia atrás
 
 function recalcLayout(){
   const w = track.getBoundingClientRect().width;
-  baseX  = Math.min(0.28 * w, 220);  // distancia lateral
-  depthZ = Math.min(0.18 * w, 180);  // profundidad hacia atrás
+  baseX  = Math.min(0.28 * w, 240);  // lateral según ancho
+  depthZ = Math.min(0.22 * w, 220);  // profundidad hacia atrás
   updateGallery();
 }
 
 function updateGallery(){
   items.forEach((item, i) => {
-    const off = i - currentIndex;
-    const base = 'translate(-50%,-50%)';
+    const off  = i - currentIndex;
+    const abs  = Math.abs(off);
+    const dir  = off < 0 ? -1 : 1;
 
     if (off === 0){
-      // Principal al frente
-      item.style.transform = `${base} translateX(0px) translateZ(0px) rotateY(0deg) scale(1)`;
+      // Principal: al frente
+      item.style.transform = `translate(-50%, -50%) translateX(0px) translateZ(0px) rotateY(0deg) scale(1)`;
       item.style.opacity   = 1;
-      item.style.zIndex    = 100;           // muy por encima
+      item.style.zIndex    = 1000;
       item.style.pointerEvents = 'auto';
-      item.style.filter = 'none';
+      item.style.filter    = 'none';
     } else {
-      const dir   = off < 0 ? -1 : 1;
-      const abs   = Math.abs(off);
-      const x     = dir * baseX * abs;
-      const rotY  = dir * -12;
-      const zBack = -depthZ * abs;          // EMPUJA HACIA ATRÁS
-      const scale = Math.max(0.68, 1 - 0.18*abs);
-      const op    = Math.max(0.35, 0.85 - 0.20*abs);
+      // Secundarias: detrás, más pequeñas y sutilmente atenuadas
+      const x      = dir * baseX * abs;
+      const zBack  = -depthZ * abs;         // detrás
+      const rotY   = dir * -12;
+      const scale  = Math.max(0.68, 1 - 0.18*abs);
+      const op     = Math.max(0.35, 0.85 - 0.20*abs);
+      const zLayer = 1000 - abs;
 
-      item.style.transform = `${base} translateX(${x}px) translateZ(${zBack}px) rotateY(${rotY}deg) scale(${scale})`;
+      item.style.transform = `translate(-50%, -50%) translateX(${x}px) translateZ(${zBack}px) rotateY(${rotY}deg) scale(${scale})`;
       item.style.opacity   = op;
-      item.style.zIndex    = 100 - abs;     // siempre detrás de la principal
+      item.style.zIndex    = zLayer;
       item.style.pointerEvents = 'none';    // no tapa la principal
-      item.style.filter = 'brightness(0.92)'; // leve atenuación sin opacar
+      item.style.filter    = 'brightness(0.92)';
     }
   });
 }
@@ -107,7 +111,7 @@ function goNext(){ currentIndex = (currentIndex + 1) % items.length; updateGalle
 prevBtn?.addEventListener('click', goPrev);
 nextBtn?.addEventListener('click', goNext);
 
-// Gestos (táctil/mouse)
+// Gestos táctil/mouse
 let startX = 0, dragging = false;
 const start = x => { startX = x; dragging = true; };
 const end   = x => {
@@ -125,4 +129,8 @@ track.addEventListener('mouseup',    e => end(e.clientX));
 track.addEventListener('mouseleave', () => { dragging = false; });
 
 window.addEventListener('resize', recalcLayout);
-recalcLayout();
+document.addEventListener('DOMContentLoaded', () => {
+  recalcLayout();
+  // Asegura que arranque bien posicionada la principal
+  updateGallery();
+});

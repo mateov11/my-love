@@ -17,37 +17,40 @@ body{
 
 /* ---------- Imagen inicial ---------- */
 .image-section{
-  height: 80vh;                 /* un poco más corto para acercar el contenido */
+  height: 100vh;                       /* pantalla completa para un reveal largo */
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
+  background: #000;                     /* respaldo negro */
 }
 .image-section img{
-  width: min(320px, 72vw);
-  max-height: 76vh;
+  position: relative;
+  z-index: 1;                           /* debajo del overlay */
+  width: min(340px, 72vw);
+  max-height: 82vh;
   object-fit: cover;
-  opacity: 0;                   /* inicia invisible */
-  transform: translateY(26px) scale(0.98);
-  transition: opacity .3s ease, transform .3s ease;
+  opacity: 0;                           /* inicia invisible */
+  transform: translateY(28px) scale(.98);
+  transition: opacity .35s ease, transform .35s ease;
 }
-/* Overlay negro que garantiza que arranque “todo negro” */
 .reveal-overlay{
-  position:absolute;
-  inset:0;
-  background:#000;
-  opacity:1;                    /* arranca totalmente negro */
-  pointer-events:none;
-  transition: opacity .3s ease;
+  position: absolute;
+  inset: 0;
+  background: #000;                     /* negro sólido */
+  opacity: 1;                           /* arranca negro total */
+  z-index: 2;                           /* sobre la imagen */
+  pointer-events: none;
+  transition: opacity .35s ease;
 }
 
 /* ---------- Contenido ---------- */
 .content{
   width:min(980px,92vw);
-  margin: 6px auto 18px;        /* reduce el gap con la imagen */
+  margin: 8px auto 18px;                /* menor separación */
 }
 .title{
-  margin: 6px 0 14px;
+  margin: 8px 0 14px;
   font: 700 42px/1.15 "Cursive", serif;
   color: var(--accent);
 }
@@ -78,11 +81,11 @@ body{
 
 /* ---------- Galería ---------- */
 .gallery{
-  width:min(1000px,96vw);
-  height: clamp(320px, 44vh, 520px);
+  width:min(1100px,96vw);
+  height: clamp(340px, 46vh, 560px);
   margin:18px auto 42px;
   position:relative;
-  perspective: 1200px;
+  perspective: 1200px;                  /* activa profundidad */
   overflow:hidden;
   display:grid;
   place-items:center;
@@ -90,23 +93,26 @@ body{
 .gallery-track{
   position:relative;
   width:100%; height:100%;
-  transform-style: preserve-3d;
+  transform-style: preserve-3d;         /* hijos con 3D real */
 }
 .gallery-item{
   position:absolute;
   top:50%; left:50%;
   transform: translate(-50%,-50%);
+  transform-origin:center;
   transition: transform .5s ease, opacity .5s ease, filter .5s ease;
+  will-change: transform, opacity, filter;
 }
 .gallery-item img{
-  height:80%;
-  max-height:420px;
-  max-width:70vw;
+  height: 82%;
+  max-height: 460px;
+  max-width: 74vw;
   border-radius:14px;
   box-shadow:var(--shadow);
-  object-fit:cover;
+  object-fit: cover;
 }
-/* centrada y con flechas */
+
+/* Flechas navegación */
 .nav{
   position:absolute;
   top:50%;
@@ -115,7 +121,7 @@ body{
   color:#fff;
   border:0;
   border-radius:10px;
-  padding:8px 14px;
+  padding:10px 16px;
   font-size:28px;
   cursor:pointer;
   transition:background .2s;
@@ -130,6 +136,6 @@ body{
   .time-number{ font-size:28px; }
   .time-label{ font-size:12px; }
   .time-unit{ padding:12px 10px; }
-  .gallery{ height: clamp(300px, 48vh, 420px); }
+  .gallery{ height: clamp(320px, 48vh, 480px); }
   .nav{ display:none; } /* ocultar flechas en móvil */
 }
