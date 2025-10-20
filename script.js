@@ -29,6 +29,41 @@ window.addEventListener('scroll', handleReveal, { passive: true });
 window.addEventListener('resize', handleReveal);
 document.addEventListener('DOMContentLoaded', handleReveal);
 handleReveal();
+/* ========= Fondo dinámico: de #000000 a #333333 con el scroll ========= */
+const rootStyle = document.documentElement.style;
+
+// color inicio y final en RGB
+const bgStart = [0, 0, 0];        // #000000
+const bgEnd   = [51, 51, 51];     // #333333
+
+function lerp(a, b, t){ return a + (b - a) * t; }
+function clamp01(x){ return Math.min(Math.max(x, 0), 1); }
+
+function updateBackgroundByScroll(){
+  // Define hasta dónde “mezclas” el color (ajustable)
+  // 0.8 * viewport: cambio rápido; 1.4: cambio más largo/suave
+  const maxRange = window.innerHeight * 1.0;
+
+  let t = clamp01(window.scrollY / Math.max(maxRange, 1));
+  const r = Math.round(lerp(bgStart[0], bgEnd[0], t));
+  const g = Math.round(lerp(bgStart[1], bgEnd[1], t));
+  const b = Math.round(lerp(bgStart[2], bgEnd[2], t));
+
+  rootStyle.setProperty('--bg', `rgb(${r}, ${g}, ${b})`);
+}
+
+// Llama esto junto con tu revelado
+window.addEventListener('scroll', updateBackgroundByScroll, { passive: true });
+window.addEventListener('resize', updateBackgroundByScroll);
+document.addEventListener('DOMContentLoaded', updateBackgroundByScroll);
+
+// Si quieres que el fondo cambie EXACTAMENTE en el mismo rango del revelado,
+// también puedes llamar aquí dentro:
+const __originalHandleReveal = handleReveal;
+function handleReveal(){
+  __originalHandleReveal();       // tu lógica de overlay/foto
+  updateBackgroundByScroll();     // sincrónico con el revelado
+}
 
 /* ========= 2) CONTADOR (3 arriba / 3 abajo) ========= */
 const startDate = new Date('2025-09-20T00:00:00');

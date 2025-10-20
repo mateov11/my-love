@@ -1,5 +1,5 @@
 :root{
-  --bg:#000;
+  --bg:#000000;   /* negro al iniciar */
   --card:#2b2b2b;
   --accent:#e53935;
   --shadow:0 14px 40px rgba(0,0,0,.45);
@@ -9,12 +9,11 @@
 body{
   margin:0;
   font-family: "Georgia", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:var(--bg);
+  background: var(--bg);   /* <-- importante: usa la variable */
   color:#fff;
   text-align:center;
   overflow-x:hidden;
 }
-
 /* ---------- Imagen inicial ---------- */
 .image-section{
   height: 100vh;                       /* pantalla completa para un reveal largo */
