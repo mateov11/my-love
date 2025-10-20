@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tiempo Compartiendo Juntos</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Te amo may </title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Imagen inicial -->
-  <div class="image-section">
-    <img src="fotos/primera.jpg" id="revealImage" alt="Imagen vertical">
-  </div>
+  <!-- Imagen inicial (reemplaza src por tu foto) -->
+  <section class="image-section">
+    <img id="revealImage" src="fotos/foto1.jpg" alt="Imagen vertical">
+  </section>
 
-  <!-- Contenido -->
-  <div class="content">
-    <div class="title">Tiempo compartiendo juntos</div>
+  <main class="content">
+    <h1 class="title">Tiempo compartiendo juntos</h1>
 
-    <!-- Cronómetro en 2 filas -->
-    <div class="timer">
-      <div class="time-unit"><div class="time-number" id="years">00</div><div class="time-label">Años</div></div>
-      <div class="time-unit"><div class="time-number" id="months">00</div><div class="time-label">Meses</div></div>
-      <div class="time-unit"><div class="time-number" id="days">00</div><div class="time-label">Días</div></div>
-      <div class="time-unit"><div class="time-number" id="hours">00</div><div class="time-label">Horas</div></div>
-      <div class="time-unit"><div class="time-number" id="minutes">00</div><div class="time-label">Minutos</div></div>
-      <div class="time-unit"><div class="time-number" id="seconds">00</div><div class="time-label">Segundos</div></div>
-    </div>
+    <!-- Cronómetro 3 arriba / 3 abajo -->
+    <section class="timer" aria-label="contador">
+      <div class="time-unit"><span id="years" class="time-number">00</span><span class="time-label">Años</span></div>
+      <div class="time-unit"><span id="months" class="time-number">00</span><span class="time-label">Meses</span></div>
+      <div class="time-unit"><span id="days" class="time-number">00</span><span class="time-label">Días</span></div>
+      <div class="time-unit"><span id="hours" class="time-number">00</span><span class="time-label">Horas</span></div>
+      <div class="time-unit"><span id="minutes" class="time-number">00</span><span class="time-label">Minutos</span></div>
+      <div class="time-unit"><span id="seconds" class="time-number">00</span><span class="time-label">Segundos</span></div>
+    </section>
 
-    <div class="together">
-      <span class="heart">❤️</span> Compartiendo juntos desde 20 de septiembre de 2025 <span class="heart">❤️</span>
-    </div>
+    <p class="together">
+      <span class="heart">❤️</span>
+      Compartiendo juntos desde 20 de septiembre de 2025
+      <span class="heart">❤️</span>
+    </p>
 
-    <div class="custom-text">
-      <p>Aquí puedes poner un mensaje personalizado</p>
-    </div>
-  </div>
+    <p class="custom-text">Aquí puedes poner un mensaje personalizado</p>
+  </main>
 
-  <!-- Galería -->
-  <div class="gallery">
+  <!-- Galería centrada -->
+  <section class="gallery" aria-label="galería">
     <div class="gallery-track">
-      <div class="gallery-item"><img src="fotos/primera.jpg" alt="Foto 1"></div>
-      <div class="gallery-item"><img src="fotos/primera.jpg" alt="Foto 2"></div>
-      <div class="gallery-item"><img src="fotos/primera.jpg" alt="Foto 3"></div>
-      <div class="gallery-item"><img src="fotos/primera.jpg" alt="Foto 4"></div>
-      <div class="gallery-item"><img src="fotos/primera.jpg" alt="Foto 5"></div>
+      <figure class="gallery-item"><img src="fotos/foto1.jpg" alt="Foto 1"></figure>
+      <figure class="gallery-item"><img src="fotos/foto2.jpg" alt="Foto 2"></figure>
+      <figure class="gallery-item"><img src="fotos/foto3.jpg" alt="Foto 3"></figure>
+      <figure class="gallery-item"><img src="fotos/foto4.jpg" alt="Foto 4"></figure>
+      <figure class="gallery-item"><img src="fotos/foto5.jpg" alt="Foto 5"></figure>
     </div>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </div>
+
+    <button class="nav prev" aria-label="Anterior">‹</button>
+    <button class="nav next" aria-label="Siguiente">›</button>
+  </section>
 
   <script src="script.js"></script>
 </body>
