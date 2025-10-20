@@ -138,3 +138,55 @@ body{
   .gallery{ height: clamp(320px, 48vh, 480px); }
   .nav{ display:none; } /* ocultar flechas en móvil */
 }
+/* ——— Carta/poema romántico ——— */
+.love-letter{
+  width: min(820px, 92vw);
+  margin: 20px auto 28px;
+  padding: 24px 22px;
+  text-align: left;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.love-deco{
+  position: absolute;
+  top: -14px;
+  left: 18px;
+  background: #333333;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 18px;
+  color: var(--accent);
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+}
+
+/* Respetar tus saltos de línea y dar ritmo de lectura */
+.poem{
+  white-space: pre-line;           /* <-- hace visibles los saltos */
+  font-size: 20px;
+  line-height: 1.85;
+  letter-spacing: .2px;
+  color: #fff;
+  margin: 0;
+}
+
+/* Detalle elegante al iniciar el texto (drop cap) */
+.poem::first-letter{
+  float: left;
+  font-size: 44px;
+  line-height: 1;
+  padding: 4px 10px 0 0;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 600px){
+  .poem{ font-size: 18px; line-height: 1.75; }
+  .love-letter{ padding: 18px 16px; }
+  .poem::first-letter{ font-size: 38px; padding-right: 8px; }
+}
