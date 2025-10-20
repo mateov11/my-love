@@ -1,198 +1,139 @@
-body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  color: white;
-  text-align: center;
-  transition: background 0.2s linear;
-}
+ /* ----- Base ----- */
+    body{
+      margin:0;
+      padding:0;
+      overflow-x:hidden;
+      font-family:'Georgia', serif;
+      background:#000;
+      color:#fff;
+      text-align:center;
+    }
 
-/* Imagen de fondo que aparece con scroll */
-.image-section {
-  height: 120vh;
-  position: relative;
-  overflow: hidden;
-}
+    /* ----- Imagen inicial (revela más rápido) ----- */
+    .image-section{
+      height:100vh;            /* menos alto para reducir distancia */
+      position:relative;
+      overflow:hidden;
+    }
+    .image-section img{
+      position:absolute;
+      top:10%;                 /* más arriba que antes */
+      left:50%;
+      transform:translate(-50%, 20px);
+      width:300px;
+      max-height:70vh;
+      object-fit:cover;
+      opacity:0;
+      transition:opacity .2s linear, transform .2s linear;
+    }
 
-.image-section img {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%) translateY(50px);
-  width: 300px;
-  max-height: 70vh;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.1s linear, transform 0.1s linear;
-}
+    /* ----- Contenido ----- */
+    .content{
+      position:relative;
+      padding:20px 20px 60px;  /* menos separación superior */
+    }
+    .title{
+      font-size:42px;
+      color:red;
+      font-family:'Cursive', serif;
+      margin:10px 0 20px;      /* reduce separación con la imagen */
+    }
 
-/* Contenido principal */
-.content {
-  position: relative;
-  padding: 40px 20px 80px 20px;
-}
+    /* ----- Contador 3 x 2 (3 arriba / 3 abajo) ----- */
+    .timer{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(70px, 1fr));
+      gap:15px;
+      justify-items:center;
+      align-items:stretch;
+      margin-bottom:20px;
+    }
+    .time-unit{
+      background:rgba(255,255,255,.05);
+      padding:16px 12px;
+      border-radius:12px;
+      min-width:70px;
+      text-align:center;
+      transition:transform .2s;
+    }
+    .time-unit:hover{ transform:scale(1.05); }
+    .time-number{ font-size:36px; font-weight:bold; color:#fff; }
+    .time-label{  font-size:14px; margin-top:5px; color:#fff; }
 
-.title {
-  font-size: 42px;
-  color: red;
-  font-family: 'Cursive', serif;
-  margin-bottom: 30px;
-}
+    /* ----- Mensaje fecha ----- */
+    .together{ font-size:22px; font-family:'Cursive', serif; }
+    .heart{ color:red; margin:0 5px; font-size:24px; }
 
-/* Contenedor del contador */
-.timer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 30px;
-}
+    /* ----- Galería centrada / consistente PC y móvil ----- */
+    .gallery{
+      position:relative;
+      width:100%;
+      max-width:1000px;
+      height:600px;
+      margin:40px auto;
+      perspective:1500px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+    }
+    .gallery-track{
+      position:relative;
+      width:100%;
+      height:100%;
+      transform-style:preserve-3d;
+    }
+    .gallery-item{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%); /* base centrada real */
+      transform-origin:center center;
+      transition:transform .5s ease, opacity .5s ease;
+    }
+    .gallery-item img{
+      width:auto;
+      max-width:400px;
+      height:auto;
+      max-height:500px;
+      border-radius:15px;
+      box-shadow:0 20px 50px rgba(0,0,0,.5);
+      display:block;
+    }
 
-/* Cada unidad del contador */
-.time-unit {
-  background: rgba(255,255,255,0.05);
-  padding: 20px 15px;
-  border-radius: 12px;
-  min-width: 70px;
-  text-align: center;
-  transition: transform 0.2s;
-}
+    /* ----- Botones carrusel ----- */
+    .gallery button{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,.2);
+      border:none;
+      font-size:30px;
+      color:#fff;
+      cursor:pointer;
+      padding:10px 15px;
+      border-radius:10px;
+      transition:background .3s;
+    }
+    .gallery button:hover{ background:rgba(255,255,255,.5); }
+    .gallery .prev{ left:10px; }
+    .gallery .next{ right:10px; }
 
-.time-unit:hover {
-  transform: scale(1.05);
-}
-
-.time-number {
-  font-size: 36px;
-  color: white;
-  font-weight: bold;
-  font-family: 'Arial', sans-serif; /* tipografía simple */
-}
-
-.time-label {
-  font-size: 14px;
-  color: white;
-  margin-top: 5px;
-  font-family: 'Arial', sans-serif; /* tipografía simple */
-}
-
-/* Mensaje con fecha elegante */
-.together {
-  font-size: 22px;
-  font-family: 'Cursive', serif;
-}
-
-.heart {
-  color: red;
-  margin: 0 5px;
-  font-size: 24px;
-}
-
-/* Responsivo */
-@media(max-width: 600px){
-  .title { font-size: 32px; }
-  .time-number { font-size: 28px; }
-  .time-label { font-size: 12px; }
-  .time-unit { padding: 15px 10px; min-width: 50px; }
-  .together { font-size: 18px; }
-  .heart { font-size: 20px; }
-}
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: 'Georgia', serif;
-  background-color: #000;
-  color: white;
-}
-
-.gallery {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  height: 600px;
-  margin: 50px auto;
-  perspective: 1500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.gallery-track {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-}
-
-.gallery-item {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  transform-origin: center center;
-}
-
-.gallery-item img {
-  width: auto;
-  max-width: 400px;
-  height: auto;
-  max-height: 500px;
-  border-radius: 15px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  display: block;
-}
-
-/* Botones */
-.gallery button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.2);
-  border: none;
-  font-size: 30px;
-  color: white;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 10px;
-  transition: background 0.3s;
-}
-
-.gallery button:hover {
-  background: rgba(255,255,255,0.5);
-}
-
-.gallery .prev {
-  left: 10px;
-}
-
-.gallery .next {
-  right: 10px;
-}
-
-/* Responsive: ocultar botones en móviles */
-@media(max-width: 768px){
-  .gallery button {
-    display: none;
-  }
-
-  .gallery {
-    height: 450px;
-  }
-
-  .gallery-item img {
-    max-width: 300px;
-    max-height: 350px;
-  }
-}
-
-@media(max-width: 480px){
-  .gallery {
-    height: 350px;
-  }
-
-  .gallery-item img {
-    max-width: 250px;
-    max-height: 300px;
-  }
-}
+    /* ----- Responsive ----- */
+    @media(max-width:768px){
+      .gallery{ height:450px; }
+      .gallery button{ display:none; } /* ocultar flechas en móvil */
+      .gallery-item img{ max-width:300px; max-height:350px; }
+    }
+    @media(max-width:480px){
+      .gallery{ height:350px; }
+      .gallery-item img{ max-width:250px; max-height:300px; }
+    }
+    @media(max-width:600px){
+      .title{ font-size:32px; }
+      .time-number{ font-size:28px; }
+      .time-label{ font-size:12px; }
+      .time-unit{ padding:12px 10px; min-width:60px; }
+      .together{ font-size:18px; }
+      .heart{ font-size:20px; }
+    }
