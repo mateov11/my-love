@@ -1,13 +1,33 @@
-/* ---------- Imagen inicial: aparece antes (ahora desde 10% de scroll) ---------- */
+/* ---------- Imagen inicial: siempre visible y mejora con poco scroll ---------- */
 const img = document.getElementById('revealImage');
+
+function clamp(n, a, b){ return Math.min(Math.max(n, a), b); }
+
 function handleScrollReveal(){
   const sc = window.scrollY;
-  const threshold = window.innerHeight * 0.1; // antes 0.2 → aparece el doble de rápido
-  const t = Math.min(Math.max(sc / Math.max(threshold, 1), 0), 1);
-  img.style.opacity = t;
-  img.style.transform = `translateY(${25 - 25 * t}px)`;
+
+  // Si casi no hay scroll en la página, muéstrala completa SIEMPRE.
+  const noScroll = document.body.scrollHeight <= window.innerHeight * 1.05;
+  if (noScroll){
+    img.style.opacity = 1;
+    img.style.transform = 'translateY(0px)';
+    return;
+  }
+
+  // Con ~8% del viewport ya llega a 100%
+  const threshold = Math.max(window.innerHeight * 0.08, 1);
+  const t = clamp(sc / threshold, 0, 1);
+
+  // Opacidad mínima 0.5 al inicio (nunca queda "desaparecida")
+  const baseOpacity = 0.5;
+  const op = baseOpacity + (1 - baseOpacity) * t;
+
+  img.style.opacity = op.toFixed(3);
+  img.style.transform = `translateY(${16 - 16 * t}px)`;
 }
+
 window.addEventListener('scroll', handleScrollReveal, { passive: true });
+window.addEventListener('DOMContentLoaded', handleScrollReveal);
 handleScrollReveal();
 
 /* ---------- Contador (3 arriba / 3 abajo) ---------- */
