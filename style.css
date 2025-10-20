@@ -1,5 +1,4 @@
 :root{
-  --bg:#000000;   /* negro al iniciar */
   --card:#2b2b2b;
   --accent:#e53935;
   --shadow:0 14px 40px rgba(0,0,0,.45);
@@ -9,11 +8,12 @@
 body{
   margin:0;
   font-family: "Georgia", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);   /* <-- importante: usa la variable */
+  background:#333333; /* fondo gris elegante fijo */
   color:#fff;
   text-align:center;
   overflow-x:hidden;
 }
+
 /* ---------- Imagen inicial ---------- */
 .image-section{
   height: 100vh;                       /* pantalla completa para un reveal largo */
@@ -21,11 +21,11 @@ body{
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #000;                     /* respaldo negro */
+  background: #333333;                 /* mismo gris del body */
 }
 .image-section img{
   position: relative;
-  z-index: 1;                           /* debajo del overlay */
+  z-index: 1;                           /* debajo del overlay si existiera */
   width: min(340px, 72vw);
   max-height: 82vh;
   object-fit: cover;
@@ -33,14 +33,14 @@ body{
   transform: translateY(28px) scale(.98);
   transition: opacity .35s ease, transform .35s ease;
 }
+/* Overlay anulado (sin negro) por si lo mantienes en el HTML */
 .reveal-overlay{
   position: absolute;
   inset: 0;
-  background: #000;                     /* negro sólido */
-  opacity: 1;                           /* arranca negro total */
-  z-index: 2;                           /* sobre la imagen */
+  background: transparent;              /* transparente: no oscurece */
+  opacity: 0;                           /* siempre oculto */
+  z-index: 2;
   pointer-events: none;
-  transition: opacity .35s ease;
 }
 
 /* ---------- Contenido ---------- */
