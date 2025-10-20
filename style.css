@@ -190,3 +190,73 @@ body{
   .love-letter{ padding: 18px 16px; }
   .poem::first-letter{ font-size: 38px; padding-right: 8px; }
 }
+/* ——— Carta/poema romántico mejorada con espacio entre párrafos ——— */
+.love-letter{
+  width: min(820px, 92vw);
+  margin: 20px auto 28px;
+  padding: 28px 26px;
+  text-align: left;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.love-deco{
+  position: absolute;
+  top: -14px;
+  left: 18px;
+  background: #333333;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 18px;
+  color: var(--accent);
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+}
+
+/* Texto del poema */
+.poem{
+  white-space: pre-line;           /* respeta tus saltos */
+  font-size: 20px;
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+  color: #fff;
+  margin: 0;
+  text-align: justify;             /* mejora la lectura */
+}
+
+/* Espacios visuales entre párrafos (como si fueran estrofas) */
+.poem::before,
+.poem::after {
+  content: "";
+  display: block;
+  height: 14px;
+}
+
+/* Ajustes del primer párrafo con capital inicial */
+.poem::first-letter{
+  float: left;
+  font-size: 46px;
+  line-height: 1;
+  padding: 4px 10px 0 0;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Firma opcional */
+.signature {
+  text-align: right;
+  margin-top: 16px;
+  font-family: "Great Vibes", cursive;
+  font-size: 26px;
+  color: #ffb3b3;
+}
+
+/* Responsive */
+@media (max-width: 600px){
+  .poem{ font-size: 18px; line-height: 1.8; }
+  .love-letter{ padding: 20px 18px; }
+  .poem::first-letter{ font-size: 40px; padding-right: 8px; }
+}
