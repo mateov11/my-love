@@ -1,139 +1,149 @@
- /* ----- Base ----- */
-    body{
-      margin:0;
-      padding:0;
-      overflow-x:hidden;
-      font-family:'Georgia', serif;
-      background:#000;
-      color:#fff;
-      text-align:center;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
 
-    /* ----- Imagen inicial (revela más rápido) ----- */
-    .image-section{
-      height:100vh;            /* menos alto para reducir distancia */
-      position:relative;
-      overflow:hidden;
-    }
-    .image-section img{
-      position:absolute;
-      top:10%;                 /* más arriba que antes */
-      left:50%;
-      transform:translate(-50%, 20px);
-      width:300px;
-      max-height:70vh;
-      object-fit:cover;
-      opacity:0;
-      transition:opacity .2s linear, transform .2s linear;
-    }
+/* Imagen inicial */
+.image-section {
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
 
-    /* ----- Contenido ----- */
-    .content{
-      position:relative;
-      padding:20px 20px 60px;  /* menos separación superior */
-    }
-    .title{
-      font-size:42px;
-      color:red;
-      font-family:'Cursive', serif;
-      margin:10px 0 20px;      /* reduce separación con la imagen */
-    }
+.image-section img {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 260px;
+  opacity: 0;
+  transition: opacity 0.4s linear, transform 0.4s linear;
+}
 
-    /* ----- Contador 3 x 2 (3 arriba / 3 abajo) ----- */
-    .timer{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(70px, 1fr));
-      gap:15px;
-      justify-items:center;
-      align-items:stretch;
-      margin-bottom:20px;
-    }
-    .time-unit{
-      background:rgba(255,255,255,.05);
-      padding:16px 12px;
-      border-radius:12px;
-      min-width:70px;
-      text-align:center;
-      transition:transform .2s;
-    }
-    .time-unit:hover{ transform:scale(1.05); }
-    .time-number{ font-size:36px; font-weight:bold; color:#fff; }
-    .time-label{  font-size:14px; margin-top:5px; color:#fff; }
+/* Contenido */
+.content {
+  padding: 20px;
+}
 
-    /* ----- Mensaje fecha ----- */
-    .together{ font-size:22px; font-family:'Cursive', serif; }
-    .heart{ color:red; margin:0 5px; font-size:24px; }
+.title {
+  font-size: 42px;
+  color: red;
+  font-family: 'Cursive', serif;
+  margin-bottom: 20px;
+}
 
-    /* ----- Galería centrada / consistente PC y móvil ----- */
-    .gallery{
-      position:relative;
-      width:100%;
-      max-width:1000px;
-      height:600px;
-      margin:40px auto;
-      perspective:1500px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      overflow:hidden;
-    }
-    .gallery-track{
-      position:relative;
-      width:100%;
-      height:100%;
-      transform-style:preserve-3d;
-    }
-    .gallery-item{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%); /* base centrada real */
-      transform-origin:center center;
-      transition:transform .5s ease, opacity .5s ease;
-    }
-    .gallery-item img{
-      width:auto;
-      max-width:400px;
-      height:auto;
-      max-height:500px;
-      border-radius:15px;
-      box-shadow:0 20px 50px rgba(0,0,0,.5);
-      display:block;
-    }
+/* Cronómetro 3x2 */
+.timer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(80px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto 25px;
+}
 
-    /* ----- Botones carrusel ----- */
-    .gallery button{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:rgba(255,255,255,.2);
-      border:none;
-      font-size:30px;
-      color:#fff;
-      cursor:pointer;
-      padding:10px 15px;
-      border-radius:10px;
-      transition:background .3s;
-    }
-    .gallery button:hover{ background:rgba(255,255,255,.5); }
-    .gallery .prev{ left:10px; }
-    .gallery .next{ right:10px; }
+.time-unit {
+  background: rgba(255,255,255,0.07);
+  padding: 15px 10px;
+  border-radius: 10px;
+  width: 90px;
+}
 
-    /* ----- Responsive ----- */
-    @media(max-width:768px){
-      .gallery{ height:450px; }
-      .gallery button{ display:none; } /* ocultar flechas en móvil */
-      .gallery-item img{ max-width:300px; max-height:350px; }
-    }
-    @media(max-width:480px){
-      .gallery{ height:350px; }
-      .gallery-item img{ max-width:250px; max-height:300px; }
-    }
-    @media(max-width:600px){
-      .title{ font-size:32px; }
-      .time-number{ font-size:28px; }
-      .time-label{ font-size:12px; }
-      .time-unit{ padding:12px 10px; min-width:60px; }
-      .together{ font-size:18px; }
-      .heart{ font-size:20px; }
-    }
+.time-number {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.time-label {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.together {
+  font-size: 20px;
+  font-family: 'Cursive';
+}
+
+.heart {
+  color: red;
+  font-size: 22px;
+  margin: 0 5px;
+}
+
+/* Galería centrada */
+.gallery {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 450px;
+  margin: 30px auto 60px;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.gallery-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.gallery-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.gallery-item img {
+  width: auto;
+  max-width: 300px;
+  max-height: 400px;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* Botones */
+.gallery button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.gallery button:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.gallery .prev { left: 10px; }
+.gallery .next { right: 10px; }
+
+@media (max-width: 768px) {
+  .gallery {
+    height: 350px;
+  }
+  .gallery button {
+    display: none;
+  }
+  .gallery-item img {
+    max-width: 240px;
+    max-height: 300px;
+  }
+}
