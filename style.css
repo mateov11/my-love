@@ -16,33 +16,28 @@ body{
   text-align: center;
 }
 
-/* Imagen inicial */
-.image-section {
-  /* MÁS CORTO para que el título quede más cerca */
-  height: 65vh;            /* antes 85/72: reduce espacio */
+/* ---------- Imagen inicial ---------- */
+.image-section{
+  height: 72vh;                 /* menos alto para acercar el contenido */
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
-  padding-block: 0;
-  margin: 0;               /* elimina separación extra */
+  padding-block: 12px;
 }
-
-.image-section img {
+.image-section img{
   width: min(320px, 70vw);
-  max-height: 64vh;
+  max-height: 70vh;
   object-fit: cover;
-  /* Que NUNCA esté totalmente invisible */
-  opacity: 0.5;            /* base visible al cargar */
-  transform: translateY(16px);
+  opacity: 0;
+  transform: translateY(22px);
   transition: opacity .25s ease, transform .25s ease;
 }
 
-/* Contenido (acerca todavía más el título) */
-.content {
+/* ---------- Contenido ---------- */
+.content{
   width: min(980px, 92vw);
-  margin: 6px auto 18px;   /* lo pega más a la imagen */
-  padding-top: 0;
+  margin: 4px auto 18px;        /* reduce el gap con la imagen */
 }
 
 .title{
