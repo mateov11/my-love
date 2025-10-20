@@ -16,30 +16,31 @@ body{
   text-align: center;
 }
 
-/* ---------- Imagen inicial ---------- */
-.image-section{
-  height: 72vh;                 /* menos alto para acercar el contenido */
+/* Imagen inicial */
+.image-section {
+  height: 85vh; /* antes 72vh, más espacio visible */
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
-  padding-block: 12px;
+  padding-block: 0; /* sin padding para quitar el espacio extra */
+  margin-bottom: 0; /* evita huecos antes del título */
 }
-.image-section img{
+
+.image-section img {
   width: min(320px, 70vw);
   max-height: 70vh;
   object-fit: cover;
   opacity: 0;
-  transform: translateY(22px);
+  transform: translateY(25px);
   transition: opacity .25s ease, transform .25s ease;
 }
-
 /* ---------- Contenido ---------- */
-.content{
+.content {
   width: min(980px, 92vw);
-  margin: 4px auto 18px;        /* reduce el gap con la imagen */
+  margin: 0 auto;
+  padding-top: 0; /* elimina espacio superior */
 }
-
 .title{
   margin: 6px 0 14px;
   font: 700 42px/1.15 "Cursive", serif;

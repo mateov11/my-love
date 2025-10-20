@@ -1,11 +1,11 @@
-/* ---------- Imagen inicial: aparece antes (20% de scroll) ---------- */
+/* ---------- Imagen inicial: aparece antes (ahora desde 10% de scroll) ---------- */
 const img = document.getElementById('revealImage');
 function handleScrollReveal(){
   const sc = window.scrollY;
-  const threshold = window.innerHeight * 0.2;        // 20% de la ventana
+  const threshold = window.innerHeight * 0.1; // antes 0.2 → aparece el doble de rápido
   const t = Math.min(Math.max(sc / Math.max(threshold, 1), 0), 1);
   img.style.opacity = t;
-  img.style.transform = `translateY(${22 - 22 * t}px)`;
+  img.style.transform = `translateY(${25 - 25 * t}px)`;
 }
 window.addEventListener('scroll', handleScrollReveal, { passive: true });
 handleScrollReveal();
