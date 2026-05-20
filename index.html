@@ -1,94 +1,274 @@
 <!DOCTYPE html>
 <html lang="es">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Te amo May</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Sección imagen inicial (empieza negro, aparece con scroll) -->
-  <section class="image-section">
-    <img id="revealImage" src="fotos/principal.jpg" alt="Imagen principal vertical">
-    <div class="reveal-overlay" id="revealOverlay"></div>
-  </section>
+  <nav class="tab-nav" aria-label="Navegación principal">
+    <button class="tab-btn is-active" type="button" data-tab-target="historia" aria-controls="tab-historia" aria-selected="true">
+      Nuestra historia
+    </button>
+    <button class="tab-btn" type="button" data-tab-target="presentacion" aria-controls="tab-presentacion" aria-selected="false">
+      Querida Lara Jean
+    </button>
+  </nav>
 
-  <main class="content">
-    <h1 class="title">Tiempo compartiendo juntos</h1>
+  <div id="tab-historia" class="tab-panel is-active" data-tab-panel="historia">
 
-    <!-- Cronómetro 3 arriba / 3 abajo -->
-    <section class="timer" aria-label="contador">
-      <div class="time-unit"><span id="years" class="time-number">00</span><span class="time-label">Años</span></div>
-      <div class="time-unit"><span id="months" class="time-number">00</span><span class="time-label">Meses</span></div>
-      <div class="time-unit"><span id="days" class="time-number">00</span><span class="time-label">Días</span></div>
-      <div class="time-unit"><span id="hours" class="time-number">00</span><span class="time-label">Horas</span></div>
-      <div class="time-unit"><span id="minutes" class="time-number">00</span><span class="time-label">Minutos</span></div>
-      <div class="time-unit"><span id="seconds" class="time-number">00</span><span class="time-label">Segundos</span></div>
+    <section class="image-section">
+      <img id="revealImage" src="fotos/principal.jpg" alt="Imagen principal vertical">
+      <div class="reveal-overlay" id="revealOverlay"></div>
     </section>
 
-    <p class="together">
-      <span class="heart">❤️</span>
-      Compartiendo juntos desde 20 de septiembre de 2025
-      <span class="heart">❤️</span>
-    </p>
+    <main class="content">
+      <h1 class="title">Tiempo compartiendo juntos</h1>
 
-   <div class="love-letter">
-  <div class="love-deco">❥</div>
-  <p class="poem">
-No sé en que momento entendí que un hogar no es un lugar sino tu nombre
-Desde entonces mi vida aprendió a decir nosotros
-Contigo quiero lo simple y lo infinito despertar sin prisa y reírnos por nada,
-cuidarnos en silencio y celebrar lo pequeño
-Quiero ser tu pausa y tu impulso tu abrazo de llegada y tu abrazo de partida
-Prometo elegirte en los días claros y en los días grises
-en los planes perfectos y en los improvisados
-cuando todo salga bien y cuando tengamos que volver a empezar
-Prometo ser refugio, respeto y ternura
+      <section class="timer" aria-label="contador">
+        <div class="time-unit"><span id="years" class="time-number">00</span><span class="time-label">Años</span></div>
+        <div class="time-unit"><span id="months" class="time-number">00</span><span class="time-label">Meses</span></div>
+        <div class="time-unit"><span id="days" class="time-number">00</span><span class="time-label">Días</span></div>
+        <div class="time-unit"><span id="hours" class="time-number">00</span><span class="time-label">Horas</span></div>
+        <div class="time-unit"><span id="minutes" class="time-number">00</span><span class="time-label">Minutos</span></div>
+        <div class="time-unit"><span id="seconds" class="time-number">00</span><span class="time-label">Segundos</span></div>
+      </section>
+
+      <p class="together">
+        <span class="heart">❤️</span>
+        Compartiendo juntos desde 20 de septiembre de 2025
+        <span class="heart">❤️</span>
+      </p>
+
+      <div class="love-letter">
+        <div class="love-deco">❥</div>
+        <p class="poem">
+No sé en qué momento entendí que un hogar no es un lugar, sino tu nombre.
+Desde entonces, mi vida aprendió a decir nosotros.
+Contigo quiero lo simple y lo infinito, despertar sin prisa y reírnos por nada,
+cuidarnos en silencio y celebrar lo pequeño.
+Quiero ser tu pausa y tu impulso, tu abrazo de llegada y tu abrazo de partida.
+Prometo elegirte en los días claros y en los días grises,
+en los planes perfectos y en los improvisados,
+cuando todo salga bien y cuando tengamos que volver a empezar.
+Prometo ser refugio, respeto y ternura.
 Gracias por enseñarme que amar es sumar, sumar fuerzas y sumar sueños.
-Gracias por tu paciencia, por tu luz, por tu forma de quedarte
-Si alguna vez dudas mira mis manos siempre estarán buscándote
-Si alguna vez me callo escucha mi pecho ahí pronuncio tu nombre
-Si alguna vez el mundo pesa recuerda lo llevamos entre los dos
-No prometo un cuento sin tormentas prometo velas puerto y rumbo
-No prometo un camino sin piedras prometo ir contigo paso a paso
-Te elijo hoy te elijo mañana te elijo siempre
+Gracias por tu paciencia, por tu luz, por tu forma de quedarte.
+Si alguna vez dudas, mira mis manos, siempre estarán buscándote.
+Si alguna vez me callo, escucha mi pecho, ahí pronuncio tu nombre.
+Si alguna vez el mundo pesa, recuerda, lo llevamos entre los dos.
+No prometo un cuento sin tormentas, prometo velas, puerto y rumbo.
+No prometo un camino sin piedras, prometo ir contigo paso a paso.
+Te elijo hoy, te elijo mañana, te elijo siempre.
 Te amo Emy.
-  </p>
-</div>
-  </main>
+        </p>
+      </div>
+    </main>
 
-  <!-- Galería (secundarias detrás de la principal) -->
-  <section class="gallery" aria-label="galería">
-    <div class="gallery-track">
-      <figure class="gallery-item"><img src="fotos/1.jpg" alt="Foto 1"></figure>
-      <figure class="gallery-item"><img src="fotos/2.jpg" alt="Foto 2"></figure>
-      <figure class="gallery-item"><img src="fotos/3.jpg" alt="Foto 3"></figure>
-      <figure class="gallery-item"><img src="fotos/4.jpg" alt="Foto 4"></figure>
-      <figure class="gallery-item"><img src="fotos/5.jpg" alt="Foto 5"></figure>
-      <figure class="gallery-item"><img src="fotos/6.jpg" alt="Foto 6"></figure>
-      <figure class="gallery-item"><img src="fotos/7.jpg" alt="Foto 7"></figure>
-      <figure class="gallery-item"><img src="fotos/8.jpg" alt="Foto 8"></figure>
-      <figure class="gallery-item"><img src="fotos/9.jpg" alt="Foto 9"></figure>
-      <figure class="gallery-item"><img src="fotos/10.jpg" alt="Foto 10"></figure>
-      <figure class="gallery-item"><img src="fotos/11.jpg" alt="Foto 11"></figure>
-      <figure class="gallery-item"><img src="fotos/12.jpg" alt="Foto 12"></figure>
-      <figure class="gallery-item"><img src="fotos/13.jpg" alt="Foto 13"></figure>
-      <figure class="gallery-item"><img src="fotos/14.jpg" alt="Foto 14"></figure>
-      <figure class="gallery-item"><img src="fotos/15.jpg" alt="Foto 15"></figure>
-      <figure class="gallery-item"><img src="fotos/16.jpg" alt="Foto 16"></figure>
-      <figure class="gallery-item"><img src="fotos/17.jpg" alt="Foto 17"></figure>
-      <figure class="gallery-item"><img src="fotos/18.jpg" alt="Foto 18"></figure>
-      <figure class="gallery-item"><img src="fotos/19.jpg" alt="Foto 19"></figure>
-      <figure class="gallery-item"><img src="fotos/20.jpg" alt="Foto 20"></figure>
-      <figure class="gallery-item"><img src="fotos/21.jpg" alt="Foto 21"></figure>
-      <figure class="gallery-item"><img src="fotos/22.jpg" alt="Foto 22"></figure>
-      <figure class="gallery-item"><img src="fotos/23.jpg" alt="Foto 23"></figure>
-      <figure class="gallery-item"><img src="fotos/24.jpg" alt="Foto 24"></figure>
+    <section class="gallery" aria-label="galería">
+      <div class="gallery-track">
+        <figure class="gallery-item"><img src="fotos/1.jpg" alt="Foto 1" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/2.jpg" alt="Foto 2" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/3.jpg" alt="Foto 3" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/4.jpg" alt="Foto 4" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/5.jpg" alt="Foto 5" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/6.jpg" alt="Foto 6" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/7.jpg" alt="Foto 7" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/8.jpg" alt="Foto 8" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/9.jpg" alt="Foto 9" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/10.jpg" alt="Foto 10" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/11.jpg" alt="Foto 11" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/12.jpg" alt="Foto 12" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/13.jpg" alt="Foto 13" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/14.jpg" alt="Foto 14" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/15.jpg" alt="Foto 15" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/16.jpg" alt="Foto 16" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/17.jpg" alt="Foto 17" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/18.jpg" alt="Foto 18" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/19.jpg" alt="Foto 19" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/20.jpg" alt="Foto 20" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/21.jpg" alt="Foto 21" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/22.jpg" alt="Foto 22" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/23.jpg" alt="Foto 23" loading="lazy"></figure>
+        <figure class="gallery-item"><img src="fotos/24.jpg" alt="Foto 24" loading="lazy"></figure>
+      </div>
+      <button class="nav prev" type="button" aria-label="Anterior">‹</button>
+      <button class="nav next" type="button" aria-label="Siguiente">›</button>
+    </section>
+
+  </div>
+
+  <section id="tab-presentacion" class="tab-panel presentation-panel" data-tab-panel="presentacion" hidden>
+    <div class="presentation-header">
+      <span class="eyebrow">Carta en diapositivas</span>
+      <h2 class="presentation-title">Querida Lara Jean</h2>
+      <p class="presentation-intro"> Me dijiste que escribiera algo memorable, así que lo hice. Mi recuerdo de la primera vez que te vi o como tu lo llamas “Mi unico amor”</p>
     </div>
-    <button class="nav prev" aria-label="Anterior">‹</button>
-    <button class="nav next" aria-label="Siguiente">›</button>
+
+    <div class="presentation-shell" aria-label="Presentación tipo PowerPoint">
+      <div class="slides-viewport">
+
+        <article class="slide is-active" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 01 · Portada</span>
+            <h3>Querida Lara Jean:</h3>
+            <p>Me dijiste que escribiera algo memorable, así que lo hice. No quise hacer algo frío, ni perfecto, solo algo nuestro, algo que tuviera tu esencia, mi memoria, y todo eso bonito que empezó sin que ninguno de los dos supiera hasta dónde iba a llegar.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/principal.jpg" alt="Portada del recuerdo" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 02 · El comienzo</span>
+            <h3>Hace casi 10 meses…</h3>
+            <p>En una gran empresa conocí a una persona, sin imaginar lo que iba a pasar, a quién iba a conocer, y, sobre todo, de quién me iba a enamorar. Eras una chica que entró como pasante a hacer videos, y aunque hoy me da risa decirlo, al inicio pensé que eras bien fresita.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/1.jpg" alt="El inicio de la historia" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 03 · 18 de julio</span>
+            <h3>La excusa que lo cambió todo</h3>
+            <p>Un 18 de julio te escribí, con una excusa pequeña, de esas que parecen no significar nada, pero que después terminan significándolo todo. Te llevé a conocer otras sucursales, hablamos, compartimos un poco, y yo pensé que tal vez ya no me ibas a volver a hablar… pero la historia tenía otros planes.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/2.jpg" alt="Mensaje del 18 de julio" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 04 · La cajita del lente</span>
+            <h3>Volvimos a hablar… y ya no paró</h3>
+            <p>Por una cajita de lente volvimos a coincidir, y de a poco empezamos a entablar una conversación más real. Ahí supe que no eras una chica común. Vi una historia tuya bailando algo que yo ni conocía, K-pop, y desde entonces fue cuestión de tiempo para empezar a enamorarme, poco a poco, incluso primero por chat.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/3.jpg" alt="Conversaciones y descubrimientos" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 05 · El helado</span>
+            <h3>Conocerte, aunque no fuera fácil</h3>
+            <p>Te invité por un helado, y empecé a preguntarte tus gustos, tus colores, lo que te gustaba, lo que no, quién eras en realidad. La verdad, no salíamos mucho, y a veces se me hacía difícil conocerte, porque cuando quería invitarte algo, muchas veces no querías, y yo pensaba que tal vez no querías nada conmigo.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/4.jpg" alt="Helado y primeras salidas" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 06 · El partido y las fresas</span>
+            <h3>Casi tiro la toalla</h3>
+            <p>Después te invité a ver un partido de fútbol, el deporte que menos domino, y que menos te gusta, y aun así lo intenté. Te llevé unas fresas, y ese mismo día casi di por perdida la batalla, porque ni siquiera querías las fresas; me dijiste que no comías pasado de las 8 p.m., y yo, la verdad, pensé que era una excusa para rechazarme.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/5.jpg" alt="Partido, fresas y dudas" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 07 · Más momentos</span>
+            <h3>Y aun así, seguimos</h3>
+            <p>Poco a poco te fui invitando a más lugares, al show de luces, a la iglesia, a los parques, y la pasamos muy bien. Me acuerdo que una vez, de regreso, te quedaste dormida, y yo tenía miedo porque no sabía cómo volver a tu casa. Justo cuando pensé que ya no iba a poder, despertaste, y me guiaste. Así, poquito a poquito, empezamos a hablar más, y a saber más del uno y del otro.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/6.jpg" alt="Show de luces y más salidas" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 08 · Tus preguntas</span>
+            <h3>Ese sábado fue importante</h3>
+            <p>Un sábado me preguntaste qué quería exactamente contigo, quién era yo, qué pensaba, qué quería de verdad. Y me acuerdo mucho de ese momento, porque por fin hablamos claro, tú me contaste lo tuyo, yo te conté lo mío, y sentí que ya no solo estábamos conversando… sino construyendo algo.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/25.jpeg" alt="Conversaciones honestas" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 09 · El tres leches</span>
+            <h3>Uno de los peores y mejores días</h3>
+            <p>Una mañana fui a verte en el inglés, te invité un tres leches, y de pronto nos gritaron. Yo no sabía qué estaba pasando, hasta que supe que era tu mamá, que nos había visto agarrados de la mano. No sabía qué hacer, ni qué pensar, ni si todo se había arruinado, pero, con el tiempo, también empecé a conocerla a ella, y a buscar cómo ganarme su confianza.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/26.jpeg" alt="Tres leches y el momento inesperado" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 10 · Ya oficialmente</span>
+            <h3>Lo nuestro empezó a tomar forma</h3>
+            <p>Después de eso empezamos a salir de verdad, fuimos por pizza, vimos películas, comimos postres, matcha, wafles, y entre tantos detalles cotidianos, fuiste convirtiéndote en una parte demasiado importante de mi vida. Ya no eras solo alguien que me gustaba, eras alguien a quien yo quería elegir.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/27.jpeg" alt="Salidas y momentos juntos" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 11 · 20 de septiembre</span>
+            <h3>El día que te pedí que fueras mi novia</h3>
+            <p>Ese 20 de septiembre te invité a salir como si fuera un día cualquiera, pero tú no sabías lo que yo llevaba preparado. Tus papis estaban enojados conmigo porque el día anterior te dejé muy tarde en casa, y aun así, con qué cara iba a pedir permiso para que salieras de noche… y con qué cara iba a pedirles algo todavía más grande. Pero me dejaron, incluso me apoyaron, y desde ese día empezó una de las mejores etapas de mi vida.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/28.jpeg" alt="El día de la propuesta" loading="lazy">
+          </div>
+        </article>
+
+        <article class="slide" data-slide>
+          <div class="slide-copy">
+            <span class="slide-kicker">Slide 12 · Nosotros</span>
+            <h3>8 meses después… y todavía te elijo</h3>
+            <p>Ahora ya estamos cumpliendo 8 meses, y aunque ha habido altos y bajos, felicidad y tristeza, risa y llanto, lo más valioso es que todo lo hemos vivido el uno con el otro. Y desde entonces, todo ha sido de lo mejor que he podido vivir. Sin duda, eres la mejor novia de mi vida. Te amo con toda mi vida, amor mío, y sin dudarlo, eres la persona que quiero a mi lado, no solo en este momento, sino en toda mi vida.</p>
+          </div>
+          <div class="slide-media">
+            <img src="fotos/29.jpeg" alt="Cierre de la historia" loading="lazy">
+          </div>
+        </article>
+
+      </div>
+
+      <div class="presentation-controls">
+        <button class="presentation-nav presentation-prev" type="button" aria-label="Diapositiva anterior">‹</button>
+
+        <div class="slide-dots" aria-label="Indicadores de diapositivas">
+          <button class="slide-dot is-active" type="button" data-slide-to="0" aria-label="Ir a diapositiva 1"></button>
+          <button class="slide-dot" type="button" data-slide-to="1" aria-label="Ir a diapositiva 2"></button>
+          <button class="slide-dot" type="button" data-slide-to="2" aria-label="Ir a diapositiva 3"></button>
+          <button class="slide-dot" type="button" data-slide-to="3" aria-label="Ir a diapositiva 4"></button>
+          <button class="slide-dot" type="button" data-slide-to="4" aria-label="Ir a diapositiva 5"></button>
+          <button class="slide-dot" type="button" data-slide-to="5" aria-label="Ir a diapositiva 6"></button>
+          <button class="slide-dot" type="button" data-slide-to="6" aria-label="Ir a diapositiva 7"></button>
+          <button class="slide-dot" type="button" data-slide-to="7" aria-label="Ir a diapositiva 8"></button>
+          <button class="slide-dot" type="button" data-slide-to="8" aria-label="Ir a diapositiva 9"></button>
+          <button class="slide-dot" type="button" data-slide-to="9" aria-label="Ir a diapositiva 10"></button>
+          <button class="slide-dot" type="button" data-slide-to="10" aria-label="Ir a diapositiva 11"></button>
+          <button class="slide-dot" type="button" data-slide-to="11" aria-label="Ir a diapositiva 12"></button>
+        </div>
+
+        <button class="presentation-nav presentation-next" type="button" aria-label="Siguiente diapositiva">›</button>
+      </div>
+    </div>
   </section>
 
   <script src="script.js"></script>
