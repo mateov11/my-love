@@ -1,0 +1,15 @@
+SUBE ESTOS ARCHIVOS EN LA RAIZ DEL REPOSITORIO, NO EN OTRA CARPETA:
+
+- index.html
+- style.css
+- script.js
+- carpeta fotos/
+
+NO subas archivos llamados index(2).html, style(1).css ni script(1).js.
+GitHub Pages lee exactamente los nombres que están en el HTML.
+
+Si ya tienes archivos viejos en GitHub:
+1. Borra style(1).css y script(1).js si existen.
+2. Reemplaza style.css y script.js con estos nuevos.
+3. Mantén la carpeta fotos exactamente como fotos, en minúsculas.
+4. Después de subir, abre la web con Ctrl + F5 para evitar caché.
